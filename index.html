@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --box-bg-dark: rgba(255, 255, 255, 0.06);
+      --btn-bg-dark: rgba(255, 255, 255, 0.1);
+      --btn-hover-dark: rgba(0, 255, 200, 0.4);
+      --accent-dark: rgba(0, 255, 200, 0.6);
+      --text-dark: #ffffff;
+      --glow-dark: 0 0 12px rgba(0, 255, 200, 0.5);
+
+      --bg-light: #f0f0f0;
+      --box-bg-light: rgba(0, 0, 0, 0.1);
+      --btn-bg-light: rgba(0, 0, 0, 0.1);
+      --btn-hover-light: rgba(0, 0, 0, 0.4);
+      --accent-light: #008080;
+      --text-light: #000;
+      --glow-light: 0 0 12px rgba(0, 255, 200, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-dark);
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text-dark);
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    .box {
+      background: var(--box-bg-dark);
+      padding: 30px;
+      border-radius: 20px;
+      width: 350px;
+      box-shadow: 0 8px 30px rgba(0, 255, 200, 0.1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    body.light .box {
+      background: var(--box-bg-light);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    body.light .theme-toggle {
+      color: var(--text-light);
+    }
+
+    .todo-input {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: var(--btn-bg-dark);
+      color: var(--text-dark);
+      outline: none;
+    }
+
+    body.light input[type="text"] {
+      background: var(--btn-bg-light);
+      color: var(--text-light);
+    }
+
+    button.add-btn {
+      background: var(--btn-bg-dark);
+      color: var(--text-dark);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    body.light button.add-btn {
+      background: var(--btn-bg-light);
+      color: var(--text-light);
+    }
+
+    button.add-btn:hover {
+      background: var(--btn-hover-dark);
+      box-shadow: 0 0 10px var(--accent-dark), inset 0 0 5px var(--accent-dark);
+      transform: scale(1.05);
+    }
+
+    body.light button.add-btn:hover {
+      background: var(--btn-hover-light);
+      box-shadow: 0 0 10px var(--accent-light), inset 0 0 5px var(--accent-light);
+    }
+
+    ul.todo-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    ul.todo-list li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: bounce 0.3s ease;
+    }
+
+    body.light ul.todo-list li {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    <h1>My To-Do List</h1>
+    <div class="todo-input">
+      <input type="text" id="taskInput" placeholder="Add a new task..." />
+      <button class="add-btn" onclick="addTask()">Add</button>
+    </div>
+    <ul class="todo-list" id="todoList"></ul>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+
+    function addTask() {
+      const input = document.getElementById('taskInput');
+      const taskText = input.value.trim();
+      if (taskText === '') return;
+
+      const li = document.createElement('li');
+      li.innerHTML = `${taskText} <button class="delete-btn" onclick="removeTask(this)">✖</button>`;
+      document.getElementById('todoList').appendChild(li);
+      input.value = '';
+    }
+
+    function removeTask(button) {
+      const li = button.parentElement;
+      li.remove();
+    }
+  </script>
+</body>
+</html>
