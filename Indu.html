@@ -1,110 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rock Paper Scissors Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stake VIP Ranking</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #101820;
+      background-color: #0e1116;
       color: #fff;
     }
 
     .container {
       max-width: 1200px;
       margin: auto;
-      padding: 20px;
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    .header {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .header img {
-      width: 250px;
-      border-radius: 10px;
-    }
-
-    .header-text {
-      max-width: 600px;
-    }
-
-    .header-text h1 {
+    h2 {
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 40px;
     }
 
-    .header-text p {
-      color: #6ca0f6;
-      font-size: 14px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      margin-top: 30px;
     }
 
     .card {
-      background-color: #1e1e2f;
+      background-color: #1a1f2b;
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      width: 220px;
+      text-align: left;
+      position: relative;
       transition: 0.3s;
-      cursor: pointer;
     }
 
     .card:hover {
-      background-color: #2a2a40;
+      transform: translateY(-5px);
     }
 
-    .card img {
-      width: 40px;
-    }
-
-    .card span {
-      font-size: 16px;
+    .rank-title {
       font-weight: bold;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    .bronze { background-color: #a97142; }
+    .silver { background-color: #a1c4fd; }
+    .gold { background-color: #ffc107; }
+    .platinum { background-color: #00bcd4; }
+
+    .amount {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      font-size: 14px;
+    }
+
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #6dd5ed;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-weight: bold;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <img src="https://via.placeholder.com/250x250?text=Rock+Paper+Scissors" alt="RPS Hands"/>
-      <div class="header-text">
-        <h1>How to Play Rock Paper Scissors on Stake</h1>
-        <p>
-          Read our guide to Rock Paper Scissors by Stake Originals, our gambling twist on the classic childhood game. Learn our best tips & strategies before you play on Stake.
-        </p>
+    <h2>Stake VIP ranking system</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="rank-title bronze">Bronze</div>
+        <div class="amount">10k</div>
+        <small>Game play amount</small>
+        <ul>
+          <li>Monthly bonuses</li>
+          <li>Level Up bonuses</li>
+          <li>Rakeback</li>
+          <li>Weekly bonuses</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="rank-title silver">Silver</div>
+        <div class="amount">50k</div>
+        <small>Game play amount</small>
+        <ul>
+          <li>Monthly bonuses</li>
+          <li>Level Up bonuses</li>
+          <li>Rakeback</li>
+          <li>Weekly bonuses</li>
+          <li>Bonus growth</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="rank-title gold">Gold</div>
+        <div class="amount">100k</div>
+        <small>Game play amount</small>
+        <ul>
+          <li>Monthly bonuses</li>
+          <li>Level Up bonuses</li>
+          <li>Rakeback</li>
+          <li>Weekly bonuses</li>
+          <li>Bonus growth</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="rank-title platinum">Platinum I-III</div>
+        <div class="amount">250k - 1M</div>
+        <small>Game play amount</small>
+        <ul>
+          <li>Monthly bonuses</li>
+          <li>Level Up bonuses</li>
+          <li>Rakeback</li>
+          <li>Weekly bonuses</li>
+          <li>Bonus growth</li>
+          <li>Daily bonuses / Reload</li>
+        </ul>
       </div>
     </div>
 
-    <div class="grid">
-      <div class="card" style="background-color: #2a56e2;">
-        <img src="https://via.placeholder.com/40?text=?" alt="How to Guides">
-        <span>How to Guides</span>
-      </div>
-      <div class="card" style="background-color: #4caf50;">
-        <img src="https://via.placeholder.com/40?text=News" alt="Stake News">
-        <span>Stake News</span>
-      </div>
-      <div class="card" style="background-color: #4caf50;">
-        <img src="https://via.placeholder.com/40?text=Cards" alt="Games">
-        <span>Games</span>
-      </div>
-      <div class="card" style="background-color: #f44336;">
-        <img src="https://via.placeholder.com/40?text=Other" alt="Other">
-        <span>Other</span>
-      </div>
-    </div>
+    <div class="footer">Stake VIP Club benefits</div>
   </div>
 </body>
 </html>
