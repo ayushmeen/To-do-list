@@ -1,155 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stake VIP Ranking</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stake Smart - Responsible Gaming</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0e1116;
+      background: linear-gradient(to right, #0e0f13, #1a1d26);
       color: #fff;
     }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 40px;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #1a1f2b;
-      border-radius: 12px;
+    .sidebar {
+      background-color: #1c1f2b;
       padding: 20px;
-      width: 220px;
-      text-align: left;
-      position: relative;
-      transition: 0.3s;
+      height: 100vh;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .rank-title {
-      font-weight: bold;
-      margin-bottom: 10px;
-      padding: 4px 8px;
+    .sidebar a {
+      display: block;
+      color: #fff;
+      margin-bottom: 15px;
+      text-decoration: none;
+      padding: 10px;
+      background-color: #2a2d38;
       border-radius: 5px;
-      display: inline-block;
-      font-size: 14px;
     }
-
-    .bronze { background-color: #a97142; }
-    .silver { background-color: #a1c4fd; }
-    .gold { background-color: #ffc107; }
-    .platinum { background-color: #00bcd4; }
-
-    .amount {
-      font-size: 24px;
+    .sidebar a:hover {
+      background-color: #3a3d4a;
+    }
+    .main-content {
+      padding: 30px;
+    }
+    .main-content h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .main-content h5 {
+      margin-top: 30px;
       font-weight: bold;
-      margin: 10px 0;
+      color: #cddcfe;
     }
-
     ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
+      padding-left: 18px;
     }
-
-    ul li {
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
-      font-size: 14px;
+    ul li::marker {
+      color: #4fd1c5;
     }
-
-    ul li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: #6dd5ed;
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-weight: bold;
-      color: #bbb;
+    a.tip-link {
+      color: #76c6ff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Stake VIP ranking system</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="rank-title bronze">Bronze</div>
-        <div class="amount">10k</div>
-        <small>Game play amount</small>
-        <ul>
-          <li>Monthly bonuses</li>
-          <li>Level Up bonuses</li>
-          <li>Rakeback</li>
-          <li>Weekly bonuses</li>
-        </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 sidebar">
+        <h5 class="text-light mb-4">Responsible Gaming</h5>
+        <a href="#">Stake Smart</a>
+        <a href="#">Self-Assessment</a>
+        <a href="#">Recognise the Signs</a>
+        <a href="#">Budget Calculator</a>
       </div>
 
-      <div class="card">
-        <div class="rank-title silver">Silver</div>
-        <div class="amount">50k</div>
-        <small>Game play amount</small>
+      <!-- Main Content -->
+      <div class="col-md-9 main-content">
+        <h1>Stake Smart</h1>
+        <p>
+          <strong>Stake</strong> is committed to providing a safe environment for all its players to game with us.
+          <br>Online gaming should be a form of entertainment that should not cause harm to other areas of your life.
+        </p>
+        <p><strong>Stake</strong> does this through:</p>
         <ul>
-          <li>Monthly bonuses</li>
-          <li>Level Up bonuses</li>
-          <li>Rakeback</li>
-          <li>Weekly bonuses</li>
-          <li>Bonus growth</li>
+          <li>Providing information to customers regarding their play and spend so they can make informed decisions.</li>
+          <li>Having responsible gaming tools available such as breaks and self-exclusions.</li>
+          <li>Providing external support info to assist with problem gaming.</li>
+          <li>A Customer Service Team available 24/7.</li>
+          <li>Ensuring minors are not able to create Stake accounts.</li>
         </ul>
-      </div>
 
-      <div class="card">
-        <div class="rank-title gold">Gold</div>
-        <div class="amount">100k</div>
-        <small>Game play amount</small>
+        <h5>1. Tips To Manage Your Gaming Activities</h5>
         <ul>
-          <li>Monthly bonuses</li>
-          <li>Level Up bonuses</li>
-          <li>Rakeback</li>
-          <li>Weekly bonuses</li>
-          <li>Bonus growth</li>
+          <li>Balance gaming with other recreational activities.</li>
+          <li>Plan your time and budget before gaming.</li>
+          <li>Only make purchases you can afford.</li>
+          <li>Take breaks or stop gaming for the day.</li>
+          <li>
+            Visit helpful tips:
+            <a href="https://www.smartmobilegamers.org/top-tips" class="tip-link" target="_blank">
+              https://www.smartmobilegamers.org/top-tips
+            </a>
+          </li>
         </ul>
-      </div>
 
-      <div class="card">
-        <div class="rank-title platinum">Platinum I-III</div>
-        <div class="amount">250k - 1M</div>
-        <small>Game play amount</small>
-        <ul>
-          <li>Monthly bonuses</li>
-          <li>Level Up bonuses</li>
-          <li>Rakeback</li>
-          <li>Weekly bonuses</li>
-          <li>Bonus growth</li>
-          <li>Daily bonuses / Reload</li>
-        </ul>
+        <h5>2. House Advantage/House Edge</h5>
+        <p>
+          Games have a house edge to ensure a percentage of the total amount played is returned to the House.
+        </p>
       </div>
     </div>
-
-    <div class="footer">Stake VIP Club benefits</div>
   </div>
 </body>
 </html>
